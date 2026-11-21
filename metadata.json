@@ -1,0 +1,6 @@
+{
+  "name": "Zero Waste Global (ZWG)",
+  "description": "Akıllı geri dönüşümü, doğa ve orman korumasını ve sıfır atık ekonomisini blokzincir üzerinde doğrulayıp ZWG kripto varlığı ile ödüllendiren küresel çevre ekosistemi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
