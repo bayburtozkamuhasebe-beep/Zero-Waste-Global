@@ -90,31 +90,38 @@ export function ChapterRail({
       </aside>
 
       {/* Bottom fixed bar: chapter indicator + directional cue */}
-      <div className="fixed bottom-4 left-0 right-0 z-30 pointer-events-none px-6 md:px-12">
-        <div className="mx-auto flex max-w-[1360px] items-center justify-between gap-4">
-          {/* Mobile prev/next controls */}
-          <div className="flex md:hidden items-center gap-2 pointer-events-auto">
-            <button
-              type="button"
-              onClick={onPrev}
-              disabled={isFirst}
-              aria-label={t.nav.prevAria}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 bg-[#0A171C]/90 text-[#F2F6F4] disabled:opacity-30"
-            >
-              <ArrowUp className="h-4 w-4" />
-            </button>
-            <span className="font-mono text-xs tabular-nums text-[#9EB1B5] px-1">
-              {String(activeIndex + 1).padStart(2, '0')}/{String(total).padStart(2, '0')}
-            </span>
-            <button
-              type="button"
-              onClick={onNext}
-              disabled={isLast}
-              aria-label={t.nav.nextAria}
-              className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/15 bg-[#0A171C]/90 text-[#F2F6F4] disabled:opacity-30"
-            >
-              <ArrowDown className="h-4 w-4" />
-            </button>
+      <div className="fixed bottom-2.5 md:bottom-4 left-0 right-0 z-30 pointer-events-none px-4 md:px-12">
+        <div className="mx-auto flex max-w-[1360px] items-center justify-between gap-3">
+          {/* Mobile compact prev/next + chapter readout */}
+          <div className="flex md:hidden w-full items-center justify-between gap-2 pointer-events-auto rounded-lg border border-white/10 bg-[#071419]/88 backdrop-blur-md px-2.5 py-1.5">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className="font-mono text-[11px] tabular-nums text-[#2DD4A3] shrink-0">
+                {String(activeIndex + 1).padStart(2, '0')}/{String(total).padStart(2, '0')}
+              </span>
+              <span className="text-[11px] font-medium text-[#D0DFDD] truncate">
+                {currentChapter.navLabel}
+              </span>
+            </div>
+            <div className="flex items-center gap-1.5 shrink-0">
+              <button
+                type="button"
+                onClick={onPrev}
+                disabled={isFirst}
+                aria-label={t.nav.prevAria}
+                className="flex h-8 w-8 items-center justify-center rounded-md border border-white/15 bg-[#0A171C] text-[#F2F6F4] disabled:opacity-30 cursor-pointer"
+              >
+                <ArrowUp className="h-3.5 w-3.5" />
+              </button>
+              <button
+                type="button"
+                onClick={onNext}
+                disabled={isLast}
+                aria-label={t.nav.nextAria}
+                className="flex h-8 w-8 items-center justify-center rounded-md border border-white/15 bg-[#0A171C] text-[#F2F6F4] disabled:opacity-30 cursor-pointer"
+              >
+                <ArrowDown className="h-3.5 w-3.5" />
+              </button>
+            </div>
           </div>
 
           {/* Desktop subtle chapter label */}

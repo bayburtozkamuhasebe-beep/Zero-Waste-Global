@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Check, ArrowRight } from 'lucide-react';
 import type { TranslationDictionary } from '../../i18n';
+import { ZwgLogo } from '../ZwgLogo';
 
 type ParticipationMode = 'bireysel' | 'kurumsal';
 type ErrorField = 'name' | 'email' | 'city';
@@ -89,24 +90,24 @@ export function JoinEcosystemScene({
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_65%_55%_at_70%_50%,rgba(45,212,163,0.08),transparent_70%)]"
       />
 
-      <div className="relative z-10 mx-auto flex h-full max-w-[1360px] flex-col justify-between px-6 pt-20 pb-16 md:px-12 md:pr-28 overflow-y-auto md:overflow-hidden">
-        <div className="my-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div className="relative z-10 mx-auto flex h-full max-w-[1360px] flex-col justify-between px-4 pt-16 pb-14 sm:px-6 md:px-12 md:pt-20 md:pb-16 md:pr-28 overflow-y-auto md:overflow-hidden">
+        <div className="my-auto grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-12 items-center">
           {/* Left 5 cols: Closing call & institutional proof */}
           <div className="lg:col-span-5">
-            <p className="text-sm font-medium text-[#2DD4A3] mb-3">
+            <p className="text-xs sm:text-sm font-medium text-[#2DD4A3] mb-1 sm:mb-3">
               {t.join.kicker}
             </p>
             <h2
-              className="font-display font-semibold tracking-tight text-[#F2F6F4] leading-[1.08]"
-              style={{ fontSize: 'clamp(1.85rem, 3.4vw, 3rem)' }}
+              className="font-display font-semibold tracking-tight text-[#F2F6F4] leading-[1.08] text-balance"
+              style={{ fontSize: 'clamp(1.35rem, 3.4vw, 3rem)' }}
             >
               {t.join.headline}
             </h2>
-            <p className="mt-4 text-sm md:text-base leading-relaxed text-[#CBD9D7]">
+            <p className="mt-2 sm:mt-4 text-xs sm:text-sm md:text-base leading-snug sm:leading-relaxed text-[#CBD9D7] line-clamp-2 sm:line-clamp-none">
               {t.join.description}
             </p>
 
-            <div className="mt-8 space-y-4 border-t border-white/10 pt-6">
+            <div className="hidden lg:block mt-8 space-y-4 border-t border-white/10 pt-6">
               <div>
                 <p className="text-sm font-semibold text-[#F2F6F4]">
                   {t.join.individualBlockTitle}
@@ -128,7 +129,7 @@ export function JoinEcosystemScene({
 
           {/* Right 7 cols: Validated participation form */}
           <div className="lg:col-span-7">
-            <div className="rounded-xl border border-white/12 bg-[#0B1A20] p-6 sm:p-8">
+            <div className="rounded-xl border border-white/12 bg-[#0B1A20] p-4 sm:p-6 lg:p-8">
               <AnimatePresence mode="wait">
                 {submittedData ? (
                   <motion.div
@@ -137,26 +138,26 @@ export function JoinEcosystemScene({
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -12 }}
                     transition={{ duration: 0.3, ease: EASE }}
-                    className="py-6"
+                    className="py-3 sm:py-6"
                   >
-                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-[#2DD4A3]/15 text-[#2DD4A3] mb-5">
+                    <div className="inline-flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-lg bg-[#2DD4A3]/15 text-[#2DD4A3] mb-3 sm:mb-5">
                       <Check className="h-5 w-5" strokeWidth={2.2} />
                     </div>
-                    <h3 className="font-display text-2xl font-semibold text-[#F2F6F4]">
+                    <h3 className="font-display text-lg sm:text-2xl font-semibold text-[#F2F6F4]">
                       {t.join.confirmation.heading(submittedData.fullName)}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-[#CBD9D7]">
+                    <p className="mt-2 sm:mt-3 text-xs sm:text-sm leading-relaxed text-[#CBD9D7]">
                       {submittedData.mode === 'bireysel'
                         ? t.join.confirmation.bodyIndividual(submittedData.city)
                         : t.join.confirmation.bodyInstitutional(submittedData.city)}
                     </p>
 
-                    <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 border-y border-white/10 py-4 text-xs">
+                    <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-3 sm:gap-4 border-y border-white/10 py-3 sm:py-4 text-xs">
                       <div>
                         <span className="text-[#9EB1B5]">
                           {t.join.confirmation.typeLabel}
                         </span>
-                        <p className="mt-1 text-sm font-medium text-[#F2F6F4]">
+                        <p className="mt-0.5 text-xs sm:text-sm font-medium text-[#F2F6F4]">
                           {submittedData.mode === 'bireysel'
                             ? t.join.confirmation.typeIndividual
                             : t.join.confirmation.typeInstitutional}
@@ -166,24 +167,24 @@ export function JoinEcosystemScene({
                         <span className="text-[#9EB1B5]">
                           {t.join.confirmation.focusLabel}
                         </span>
-                        <p className="mt-1 text-sm font-medium text-[#2DD4A3]">
+                        <p className="mt-0.5 text-xs sm:text-sm font-medium text-[#2DD4A3]">
                           {submittedFocusLabel}
                         </p>
                       </div>
                     </div>
 
-                    <div className="mt-6 flex flex-wrap gap-3">
+                    <div className="mt-4 sm:mt-6 flex flex-wrap gap-2.5 sm:gap-3">
                       <button
                         type="button"
                         onClick={handleReset}
-                        className="rounded-lg border border-white/15 px-4 py-2.5 text-sm font-medium text-[#F2F6F4] hover:border-[#2DD4A3] hover:text-[#2DD4A3] transition-colors cursor-pointer"
+                        className="rounded-lg border border-white/15 px-3.5 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm font-medium text-[#F2F6F4] hover:border-[#2DD4A3] hover:text-[#2DD4A3] transition-colors cursor-pointer"
                       >
                         {t.join.confirmation.newEntryBtn}
                       </button>
                       <button
                         type="button"
                         onClick={() => onNavigateChapter(0)}
-                        className="rounded-lg bg-[#2DD4A3] px-5 py-2.5 text-sm font-semibold text-[#041512] hover:bg-[#49E3B6] transition-colors cursor-pointer"
+                        className="rounded-lg bg-[#2DD4A3] px-4 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-semibold text-[#041512] hover:bg-[#49E3B6] transition-colors cursor-pointer"
                       >
                         {t.join.confirmation.returnStartBtn}
                       </button>
@@ -198,14 +199,14 @@ export function JoinEcosystemScene({
                     transition={{ duration: 0.25, ease: EASE }}
                     onSubmit={handleSubmit}
                     noValidate
-                    className="space-y-4"
+                    className="space-y-3 sm:space-y-4"
                   >
                     {/* Segmented mode selector */}
                     <div className="flex rounded-lg bg-[#060F12] p-1 border border-white/[0.06]">
                       <button
                         type="button"
                         onClick={() => handleModeChange('bireysel')}
-                        className={`flex-1 rounded-md px-4 py-2 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap cursor-pointer ${
+                        className={`flex-1 rounded-md px-2.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-sm font-medium transition-colors whitespace-nowrap truncate cursor-pointer ${
                           mode === 'bireysel'
                             ? 'bg-[#2DD4A3] text-[#041512] font-semibold'
                             : 'text-[#9EB1B5] hover:text-[#F2F6F4]'
@@ -216,7 +217,7 @@ export function JoinEcosystemScene({
                       <button
                         type="button"
                         onClick={() => handleModeChange('kurumsal')}
-                        className={`flex-1 rounded-md px-4 py-2 text-xs sm:text-sm font-medium transition-colors whitespace-nowrap cursor-pointer ${
+                        className={`flex-1 rounded-md px-2.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-sm font-medium transition-colors whitespace-nowrap truncate cursor-pointer ${
                           mode === 'kurumsal'
                             ? 'bg-[#2DD4A3] text-[#041512] font-semibold'
                             : 'text-[#9EB1B5] hover:text-[#F2F6F4]'
@@ -226,11 +227,11 @@ export function JoinEcosystemScene({
                       </button>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                       <div>
                         <label
                           htmlFor="zw-name"
-                          className="block text-xs font-medium text-[#CBD9D7] mb-1.5"
+                          className="block text-[11px] sm:text-xs font-medium text-[#CBD9D7] mb-1 sm:mb-1.5 truncate"
                         >
                           {mode === 'bireysel'
                             ? t.join.nameLabelIndividual
@@ -246,14 +247,14 @@ export function JoinEcosystemScene({
                               ? t.join.namePlaceholderIndividual
                               : t.join.namePlaceholderInstitutional
                           }
-                          className="w-full rounded-lg border border-white/15 bg-[#060F12] px-3.5 py-2.5 text-sm text-[#F2F6F4] placeholder:text-[#667B80] focus:border-[#2DD4A3] focus:outline-none transition-colors"
+                          className="w-full rounded-lg border border-white/15 bg-[#060F12] px-2.5 sm:px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm text-[#F2F6F4] placeholder:text-[#667B80] focus:border-[#2DD4A3] focus:outline-none transition-colors"
                         />
                       </div>
 
                       <div>
                         <label
                           htmlFor="zw-email"
-                          className="block text-xs font-medium text-[#CBD9D7] mb-1.5"
+                          className="block text-[11px] sm:text-xs font-medium text-[#CBD9D7] mb-1 sm:mb-1.5 truncate"
                         >
                           {t.join.emailLabel}
                         </label>
@@ -263,16 +264,16 @@ export function JoinEcosystemScene({
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder={t.join.emailPlaceholder}
-                          className="w-full rounded-lg border border-white/15 bg-[#060F12] px-3.5 py-2.5 text-sm text-[#F2F6F4] placeholder:text-[#667B80] focus:border-[#2DD4A3] focus:outline-none transition-colors"
+                          className="w-full rounded-lg border border-white/15 bg-[#060F12] px-2.5 sm:px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm text-[#F2F6F4] placeholder:text-[#667B80] focus:border-[#2DD4A3] focus:outline-none transition-colors"
                         />
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
                       <div>
                         <label
                           htmlFor="zw-city"
-                          className="block text-xs font-medium text-[#CBD9D7] mb-1.5"
+                          className="block text-[11px] sm:text-xs font-medium text-[#CBD9D7] mb-1 sm:mb-1.5 truncate"
                         >
                           {t.join.walletOrCityLabel}
                         </label>
@@ -282,14 +283,14 @@ export function JoinEcosystemScene({
                           value={city}
                           onChange={(e) => setCity(e.target.value)}
                           placeholder={t.join.walletOrCityPlaceholder}
-                          className="w-full rounded-lg border border-white/15 bg-[#060F12] px-3.5 py-2.5 text-sm text-[#F2F6F4] placeholder:text-[#667B80] focus:border-[#2DD4A3] focus:outline-none transition-colors"
+                          className="w-full rounded-lg border border-white/15 bg-[#060F12] px-2.5 sm:px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm text-[#F2F6F4] placeholder:text-[#667B80] focus:border-[#2DD4A3] focus:outline-none transition-colors"
                         />
                       </div>
 
                       <div>
                         <label
                           htmlFor="zw-detail"
-                          className="block text-xs font-medium text-[#CBD9D7] mb-1.5"
+                          className="block text-[11px] sm:text-xs font-medium text-[#CBD9D7] mb-1 sm:mb-1.5 truncate"
                         >
                           {mode === 'bireysel'
                             ? t.join.detailLabelIndividual
@@ -299,7 +300,7 @@ export function JoinEcosystemScene({
                           id="zw-detail"
                           value={detailIndex}
                           onChange={(e) => setDetailIndex(Number(e.target.value))}
-                          className="w-full rounded-lg border border-white/15 bg-[#060F12] px-3.5 py-2.5 text-sm text-[#F2F6F4] focus:border-[#2DD4A3] focus:outline-none transition-colors"
+                          className="w-full rounded-lg border border-white/15 bg-[#060F12] px-2.5 sm:px-3.5 py-2 sm:py-2.5 text-xs sm:text-sm text-[#F2F6F4] focus:border-[#2DD4A3] focus:outline-none transition-colors"
                         >
                           {options.map((opt, idx) => (
                             <option key={opt} value={idx}>
@@ -311,18 +312,18 @@ export function JoinEcosystemScene({
                     </div>
 
                     {errorField && (
-                      <p role="alert" className="text-xs font-medium text-[#FCA5A5]">
+                      <p role="alert" className="text-[11px] sm:text-xs font-medium text-[#FCA5A5]">
                         {t.join.errors[errorField]}
                       </p>
                     )}
 
-                    <div className="pt-2 flex flex-wrap items-center justify-between gap-4">
-                      <span className="text-xs text-[#9EB1B5]">
+                    <div className="pt-1 sm:pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4">
+                      <span className="text-[10px] sm:text-xs text-[#9EB1B5] line-clamp-1">
                         {t.join.privacyNote}
                       </span>
                       <button
                         type="submit"
-                        className="group inline-flex items-center gap-2.5 rounded-lg bg-[#2DD4A3] px-6 py-3 text-sm font-semibold text-[#041512] hover:bg-[#49E3B6] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
+                        className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-[#2DD4A3] px-5 py-2.5 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-[#041512] hover:bg-[#49E3B6] transition-colors whitespace-nowrap shrink-0 cursor-pointer"
                       >
                         <span>
                           {mode === 'bireysel'
@@ -343,15 +344,16 @@ export function JoinEcosystemScene({
         </div>
 
         {/* Quiet integrated footer inside final fixed screen */}
-        <footer className="mt-6 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-4 text-xs text-[#9EB1B5]">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="font-display font-semibold text-[#F2F6F4]">
+        <footer className="mt-3 lg:mt-6 flex flex-wrap items-center justify-between gap-2 sm:gap-4 border-t border-white/10 pt-2.5 sm:pt-4 text-[10px] sm:text-xs text-[#9EB1B5]">
+          <div className="flex items-center gap-2 sm:gap-2.5 min-w-0">
+            <ZwgLogo className="h-5 w-5 sm:h-6 sm:w-6 shrink-0" />
+            <span className="font-display font-semibold text-[#F2F6F4] shrink-0">
               Zero Waste Global
             </span>
             <span aria-hidden="true">·</span>
-            <span>{t.join.footer.copyright}</span>
+            <span className="truncate">{t.join.footer.copyright}</span>
           </div>
-          <div className="flex flex-wrap items-center gap-5">
+          <div className="hidden sm:flex flex-wrap items-center gap-5">
             <button
               type="button"
               onClick={() => onNavigateChapter(1)}

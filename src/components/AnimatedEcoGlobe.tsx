@@ -45,10 +45,10 @@ export function AnimatedEcoGlobe({ alt, fallbackTitle }: AnimatedEcoGlobeProps) 
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.86 }}
+      initial={{ opacity: 0, scale: 0.88 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1.0, delay: 0.16, ease: EASE }}
-      className="relative flex items-center justify-center w-full max-w-[300px] sm:max-w-[370px] lg:max-w-[440px] xl:max-w-[480px] aspect-square mx-auto select-none"
+      transition={{ duration: 0.9, delay: 0.14, ease: EASE }}
+      className="relative flex items-center justify-center w-[156px] h-[156px] sm:w-[216px] sm:h-[216px] md:w-[260px] md:h-[260px] lg:w-[400px] lg:h-[400px] xl:w-[450px] xl:h-[450px] shrink-0 aspect-square mx-auto select-none"
       style={{ perspective: 1100 }}
     >
       {/* Breathing atmospheric emerald-cyan aura */}
@@ -63,7 +63,7 @@ export function AnimatedEcoGlobe({ alt, fallbackTitle }: AnimatedEcoGlobeProps) 
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="pointer-events-none absolute -inset-6 rounded-full bg-[radial-gradient(circle,rgba(45,212,163,0.34)_0%,rgba(14,165,233,0.16)_46%,transparent_72%)] blur-2xl"
+        className="pointer-events-none absolute -inset-3 sm:-inset-5 lg:-inset-6 rounded-full bg-[radial-gradient(circle,rgba(45,212,163,0.34)_0%,rgba(14,165,233,0.16)_46%,transparent_72%)] blur-xl sm:blur-2xl"
       />
 
       {/* Outer clockwise rotating orbital ring with luminous arcs */}
@@ -72,7 +72,7 @@ export function AnimatedEcoGlobe({ alt, fallbackTitle }: AnimatedEcoGlobeProps) 
         viewBox="0 0 500 500"
         animate={{ rotate: 360 }}
         transition={{ duration: 42, repeat: Infinity, ease: 'linear' }}
-        className="pointer-events-none absolute -inset-4 h-[calc(100%+2rem)] w-[calc(100%+2rem)]"
+        className="pointer-events-none absolute -inset-2.5 sm:-inset-4 h-[calc(100%+1.25rem)] w-[calc(100%+1.25rem)] sm:h-[calc(100%+2rem)] sm:w-[calc(100%+2rem)]"
       >
         <circle
           cx="250"
@@ -80,27 +80,27 @@ export function AnimatedEcoGlobe({ alt, fallbackTitle }: AnimatedEcoGlobeProps) 
           r="242"
           fill="none"
           stroke="rgba(45,212,163,0.22)"
-          strokeWidth="1"
+          strokeWidth="1.2"
           strokeDasharray="10 14"
         />
         <path
           d="M 250 8 A 242 242 0 0 1 460 129"
           fill="none"
           stroke="#2DD4A3"
-          strokeWidth="2.2"
+          strokeWidth="2.4"
           strokeLinecap="round"
-          opacity="0.85"
+          opacity="0.88"
         />
         <path
           d="M 250 492 A 242 242 0 0 1 40 371"
           fill="none"
           stroke="#38BDF8"
-          strokeWidth="2"
+          strokeWidth="2.2"
           strokeLinecap="round"
-          opacity="0.7"
+          opacity="0.72"
         />
-        <circle cx="460" cy="129" r="4" fill="#2DD4A3" />
-        <circle cx="40" cy="371" r="3.5" fill="#7DD3FC" />
+        <circle cx="460" cy="129" r="4.5" fill="#2DD4A3" />
+        <circle cx="40" cy="371" r="4" fill="#7DD3FC" />
       </motion.svg>
 
       {/* Inner counter-clockwise orbital energy track */}
@@ -116,20 +116,20 @@ export function AnimatedEcoGlobe({ alt, fallbackTitle }: AnimatedEcoGlobeProps) 
           cy="250"
           r="236"
           fill="none"
-          stroke="rgba(242,246,244,0.12)"
+          stroke="rgba(242,246,244,0.14)"
           strokeWidth="1"
         />
         <path
           d="M 486 250 A 236 236 0 0 1 368 454"
           fill="none"
-          stroke="rgba(45,212,163,0.65)"
-          strokeWidth="1.75"
+          stroke="rgba(45,212,163,0.68)"
+          strokeWidth="1.9"
           strokeLinecap="round"
         />
-        <circle cx="368" cy="454" r="3" fill="#A7F3D0" />
+        <circle cx="368" cy="454" r="3.5" fill="#A7F3D0" />
       </motion.svg>
 
-      {/* Interactive levitating & tiltable planet container */}
+      {/* Interactive levitating & tiltable planet container with strict WebKit-safe circular mask */}
       <motion.button
         type="button"
         onClick={handleClick}
@@ -139,10 +139,9 @@ export function AnimatedEcoGlobe({ alt, fallbackTitle }: AnimatedEcoGlobeProps) 
         style={{
           rotateX,
           rotateY,
-          transformStyle: 'preserve-3d',
         }}
         animate={{
-          y: [-7, 7, -7],
+          y: [-5, 5, -5],
         }}
         transition={{
           y: {
@@ -152,8 +151,8 @@ export function AnimatedEcoGlobe({ alt, fallbackTitle }: AnimatedEcoGlobeProps) 
           },
         }}
         whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
-        className="group relative h-[90%] w-[90%] rounded-full overflow-hidden border border-[#2DD4A3]/30 shadow-[0_0_70px_rgba(45,212,163,0.22)] cursor-pointer focus-visible:outline-2 focus-visible:outline-[#2DD4A3]"
+        whileTap={{ scale: 0.97 }}
+        className="group relative h-[88%] w-[88%] shrink-0 aspect-square isolate rounded-full [clip-path:circle(50%_at_50%_50%)] overflow-hidden border border-[#2DD4A3]/35 shadow-[0_0_50px_rgba(45,212,163,0.24)] cursor-pointer focus-visible:outline-2 focus-visible:outline-[#2DD4A3]"
       >
         {/* Continuous slow planetary circulation + interactive click full-cycle spin */}
         <motion.div
@@ -164,12 +163,12 @@ export function AnimatedEcoGlobe({ alt, fallbackTitle }: AnimatedEcoGlobeProps) 
             duration: 1.5,
             ease: EASE,
           }}
-          className="h-full w-full"
+          className="h-full w-full aspect-square"
         >
           <motion.div
             animate={{
               rotate: [0, 360],
-              scale: [1.02, 1.06, 1.02],
+              scale: [1.03, 1.07, 1.03],
             }}
             transition={{
               rotate: {
@@ -183,13 +182,13 @@ export function AnimatedEcoGlobe({ alt, fallbackTitle }: AnimatedEcoGlobeProps) 
                 ease: 'easeInOut',
               },
             }}
-            className="h-full w-full will-change-transform"
+            className="h-full w-full aspect-square will-change-transform"
           >
             <ResilientImage
               src={ASSETS.ecoGlobe}
               alt={alt}
               fallbackTitle={fallbackTitle}
-              className="h-full w-full object-cover object-center"
+              className="block h-full w-full aspect-square object-cover object-center"
             />
           </motion.div>
         </motion.div>
@@ -204,7 +203,7 @@ export function AnimatedEcoGlobe({ alt, fallbackTitle }: AnimatedEcoGlobeProps) 
         {/* Subtle circular atmospheric edge blend for seamless depth */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_0_36px_rgba(6,15,18,0.72)] ring-1 ring-inset ring-white/15"
+          className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_0_28px_rgba(6,15,18,0.68)] ring-1 ring-inset ring-white/15"
         />
       </motion.button>
     </motion.div>

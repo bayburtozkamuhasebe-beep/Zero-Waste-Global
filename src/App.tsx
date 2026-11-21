@@ -169,6 +169,11 @@ export default function App() {
   }, [goNext, goPrev, goToScene]);
 
   const handleTouchStart = (event: React.TouchEvent<HTMLElement>) => {
+    const target = event.target as HTMLElement | null;
+    if (target && target.closest('input, select, textarea')) {
+      touchStartYRef.current = null;
+      return;
+    }
     touchStartYRef.current = event.touches[0]?.clientY ?? null;
   };
 
@@ -244,7 +249,7 @@ export default function App() {
         {/* Subtle chapter progress hairline directly under TopBar */}
         <div
           aria-hidden="true"
-          className="fixed top-16 left-0 right-0 z-40 h-[2px] bg-white/[0.06]"
+          className="fixed top-14 md:top-16 left-0 right-0 z-40 h-[2px] bg-white/[0.06]"
         >
           <motion.div
             className="h-full origin-left bg-[#2DD4A3]"

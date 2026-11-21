@@ -27,7 +27,7 @@ export function LanguageSwitcher({
       return;
     }
 
-    const handlePointerDown = (event: MouseEvent) => {
+    const handlePointerDown = (event: PointerEvent) => {
       if (
         containerRef.current &&
         !containerRef.current.contains(event.target as Node)
@@ -42,10 +42,10 @@ export function LanguageSwitcher({
       }
     };
 
-    window.addEventListener('mousedown', handlePointerDown);
+    window.addEventListener('pointerdown', handlePointerDown);
     window.addEventListener('keydown', handleKeyDown);
     return () => {
-      window.removeEventListener('mousedown', handlePointerDown);
+      window.removeEventListener('pointerdown', handlePointerDown);
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [open]);
@@ -58,7 +58,7 @@ export function LanguageSwitcher({
         aria-haspopup="listbox"
         aria-expanded={open}
         aria-label={ariaLabel}
-        className="inline-flex items-center gap-2 rounded-lg border border-white/15 bg-[#08161B]/90 px-3 py-2 text-xs font-medium text-[#F2F6F4] hover:border-[#2DD4A3]/60 hover:text-[#2DD4A3] transition-colors duration-200 whitespace-nowrap shrink-0 cursor-pointer"
+        className="inline-flex items-center gap-1.5 sm:gap-2 rounded-lg border border-white/15 bg-[#08161B]/90 px-2 sm:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs font-medium text-[#F2F6F4] hover:border-[#2DD4A3]/60 hover:text-[#2DD4A3] transition-colors duration-200 whitespace-nowrap shrink-0 cursor-pointer"
       >
         <Globe className="h-3.5 w-3.5 text-[#2DD4A3]" strokeWidth={1.75} />
         <span className="font-mono tracking-wider">{currentOption.shortLabel}</span>
