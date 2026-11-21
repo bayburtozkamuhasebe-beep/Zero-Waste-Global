@@ -5,6 +5,7 @@ import type { TranslationDictionary } from '../../i18n';
 import { ResilientImage } from '../ResilientImage';
 import { AnimatedEcoGlobe } from '../AnimatedEcoGlobe';
 import { SpinningGoldCoin } from '../SpinningGoldCoin';
+import { HeroAtmosphereFX } from '../HeroAtmosphereFX';
 
 interface HeroSceneProps {
   onExplore: () => void;
@@ -16,29 +17,40 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 export function HeroScene({ onExplore, t }: HeroSceneProps) {
   return (
     <div className="relative h-full w-full overflow-hidden">
-      {/* Prominent natural landscape backdrop with subtle motion */}
+      {/* Prominent natural landscape backdrop with lively cinematic motion */}
       <motion.div
-        initial={{ scale: 1.05, opacity: 0.85 }}
-        animate={{ scale: 1.0, opacity: 1 }}
-        transition={{ duration: 1.5, ease: EASE }}
-        className="absolute inset-0"
+        initial={{ scale: 1.06, opacity: 0.9 }}
+        animate={{
+          scale: [1.02, 1.065, 1.02],
+          x: ['0%', '-1.1%', '0%'],
+          opacity: 1,
+        }}
+        transition={{
+          opacity: { duration: 1.2, ease: EASE },
+          scale: { duration: 18, repeat: Infinity, ease: 'easeInOut' },
+          x: { duration: 22, repeat: Infinity, ease: 'easeInOut' },
+        }}
+        className="absolute inset-0 will-change-transform"
       >
         <ResilientImage
           src={ASSETS.heroOcean}
           alt={t.hero.imageAlt}
           fallbackTitle={t.hero.imageFallback}
-          className="h-full w-full object-cover object-center"
+          className="h-full w-full object-cover object-center brightness-[1.08] saturate-[1.22] contrast-[1.04]"
         />
       </motion.div>
 
-      {/* Light, measured directional veil so the background stays prominent while copy stays legible */}
+      {/* Vivid line-free mountain mist, coastal air motes & sunlit ocean swells */}
+      <HeroAtmosphereFX />
+
+      {/* Light, measured directional veil so the background stays vivid while copy stays crisp */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-r from-[#060F12]/58 via-[#060F12]/28 to-[#060F12]/12"
+        className="absolute inset-0 bg-gradient-to-r from-[#060F12]/52 via-[#060F12]/20 to-[#060F12]/6"
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-[#060F12]/62 via-transparent to-[#060F12]/24"
+        className="absolute inset-0 bg-gradient-to-t from-[#060F12]/58 via-transparent to-[#060F12]/18"
       />
 
       {/* Main editorial split: Left proposition + Right Animated Eco Globe */}

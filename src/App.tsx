@@ -12,7 +12,8 @@ import { JoinEcosystemScene } from './components/scenes/JoinEcosystemScene';
 const TOTAL_SCENES = 5;
 const TRANSITION_LOCK_MS = 740;
 const SCENE_EASE = [0.22, 1, 0.36, 1] as const;
-const VALID_LANGUAGES: LanguageCode[] = ['tr', 'en', 'ja', 'de', 'fr'];
+const VALID_LANGUAGES: LanguageCode[] = ['en', 'tr', 'ja', 'de', 'fr'];
+const LANG_STORAGE_KEY = 'zwg-lang-v2';
 
 const sceneVariants = {
   enter: (direction: number) => ({
@@ -34,14 +35,14 @@ const sceneVariants = {
 
 function readInitialLanguage(): LanguageCode {
   try {
-    const saved = window.localStorage.getItem('zwg-lang') as LanguageCode | null;
+    const saved = window.localStorage.getItem(LANG_STORAGE_KEY) as LanguageCode | null;
     if (saved && VALID_LANGUAGES.includes(saved)) {
       return saved;
     }
   } catch {
     // Ignore storage access errors in restricted frames
   }
-  return 'tr';
+  return 'en';
 }
 
 export default function App() {
@@ -61,12 +62,16 @@ export default function App() {
   useEffect(() => {
     document.documentElement.lang = language;
     document.title = t.meta.pageTitle;
+  }, [language, t.meta.pageTitle]);
+
+  const handleLanguageChange = useCallback((nextLang: LanguageCode) => {
+    setLanguage(nextLang);
     try {
-      window.localStorage.setItem('zwg-lang', language);
+      window.localStorage.setItem(LANG_STORAGE_KEY, nextLang);
     } catch {
       // Ignore storage access errors in restricted frames
     }
-  }, [language, t.meta.pageTitle]);
+  }, []);
 
   const goToScene = useCallback((targetIndex: number, respectLock = false) => {
     const clamped = Math.max(0, Math.min(TOTAL_SCENES - 1, targetIndex));
@@ -242,7 +247,7 @@ export default function App() {
           activeIndex={activeIndex}
           onNavigate={handleDirectNavigate}
           language={language}
-          onLanguageChange={setLanguage}
+          onLanguageChange={handleLanguageChange}
           t={t}
         />
 

@@ -15,8 +15,8 @@ export interface LanguageOption {
 }
 
 export const LANGUAGE_OPTIONS: LanguageOption[] = [
-  { code: 'tr', shortLabel: 'TR', nativeName: 'Türkçe', locale: 'tr-TR' },
   { code: 'en', shortLabel: 'EN', nativeName: 'English', locale: 'en-US' },
+  { code: 'tr', shortLabel: 'TR', nativeName: 'Türkçe', locale: 'tr-TR' },
   { code: 'ja', shortLabel: 'JA', nativeName: '日本語', locale: 'ja-JP' },
   { code: 'de', shortLabel: 'DE', nativeName: 'Deutsch', locale: 'de-DE' },
   { code: 'fr', shortLabel: 'FR', nativeName: 'Français', locale: 'fr-FR' },
