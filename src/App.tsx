@@ -7,9 +7,10 @@ import { HeroScene } from './components/scenes/HeroScene';
 import { SmartRecyclingScene } from './components/scenes/SmartRecyclingScene';
 import { OceanProtectionScene } from './components/scenes/OceanProtectionScene';
 import { CircularEconomyScene } from './components/scenes/CircularEconomyScene';
+import { ProtocolScene } from './components/scenes/ProtocolScene';
 import { JoinEcosystemScene } from './components/scenes/JoinEcosystemScene';
 
-const TOTAL_SCENES = 5;
+const TOTAL_SCENES = 6;
 const TRANSITION_LOCK_MS = 740;
 const SCENE_EASE = [0.22, 1, 0.36, 1] as const;
 const VALID_LANGUAGES: LanguageCode[] = ['en', 'tr', 'ja', 'de', 'fr'];
@@ -228,6 +229,8 @@ export default function App() {
       case 3:
         return <CircularEconomyScene t={t} />;
       case 4:
+        return <ProtocolScene t={t} />;
+      case 5:
         return <JoinEcosystemScene onNavigateChapter={handleDirectNavigate} t={t} />;
       default:
         return <HeroScene onExplore={handleDirectNext} t={t} />;

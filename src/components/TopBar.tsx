@@ -18,7 +18,7 @@ export function TopBar({
   onLanguageChange,
   t,
 }: TopBarProps) {
-  const navChapters = t.chapters.slice(0, 4);
+  const navChapters = t.chapters.slice(0, 5);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 border-b border-white/[0.08] bg-[#060F12]/78 backdrop-blur-md">
@@ -34,10 +34,10 @@ export function TopBar({
           <span className="hidden sm:inline">Zero Waste Global <span className="text-[#2DD4A3]">(ZWG)</span></span>
         </button>
 
-        {/* Zone 2: 4 concise single-line text links */}
+        {/* Zone 2: 5 concise single-line text links */}
         <nav
           aria-label={t.nav.mainAriaLabel}
-          className="hidden lg:flex items-center gap-7 text-sm font-medium"
+          className="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-medium"
         >
           {navChapters.map((chapter, idx) => {
             const isActive = activeIndex === idx;
@@ -70,9 +70,9 @@ export function TopBar({
         <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
           <button
             type="button"
-            onClick={() => onNavigate(4)}
+            onClick={() => onNavigate(5)}
             className={`px-2.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-sm font-semibold rounded-lg transition-colors duration-200 whitespace-nowrap shrink-0 cursor-pointer max-w-[132px] sm:max-w-none truncate ${
-              activeIndex === 4
+              activeIndex === 5
                 ? 'bg-[#F2F6F4] text-[#060F12]'
                 : 'bg-[#2DD4A3] text-[#041512] hover:bg-[#49E3B6]'
             }`}

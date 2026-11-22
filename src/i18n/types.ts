@@ -1,7 +1,8 @@
 import type {
   ChapterMeta,
   CircularPhase,
-  OceanCorridor,
+  NatureNftItem,
+  ProtocolLayer,
   WasteStream,
 } from '../data/ecosystemData';
 
@@ -82,22 +83,19 @@ export interface TranslationDictionary {
     kicker: string;
     headline: string;
     description: string;
+    slogan: string;
     selectorLabel: string;
     imageAlt: string;
     imageFallback: string;
-    schematic: {
-      inflow: string;
-      barrier: string;
-      protectedSea: string;
-    };
     metrics: {
-      intercepted: string;
-      barriers: string;
-      barriersUnit: (count: number) => string;
-      grantPool: string;
+      price: string;
+      impact: string;
+      edition: string;
     };
-    habitatLabel: string;
-    corridors: OceanCorridor[];
+    provenanceLabel: string;
+    reserveCta: string;
+    reservedCta: string;
+    nfts: NatureNftItem[];
   };
   circularEconomy: {
     kicker: string;
@@ -112,6 +110,24 @@ export interface TranslationDictionary {
     }>;
     closingNote: string;
     phases: CircularPhase[];
+  };
+  protocol: {
+    kicker: string;
+    headline: string;
+    description: string;
+    architectureTitle: string;
+    metrics: {
+      mechanism: string;
+      latency: string;
+      security: string;
+    };
+    guaranteeLabel: string;
+    flowLabel: string;
+    specs: Array<{
+      label: string;
+      value: string;
+    }>;
+    layers: ProtocolLayer[];
   };
   join: {
     kicker: string;

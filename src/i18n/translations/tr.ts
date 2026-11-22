@@ -1,9 +1,11 @@
 import {
   CHAPTERS,
   CIRCULAR_PHASES,
-  OCEAN_CORRIDORS,
+  NATURE_NFTS,
+  PROTOCOL_LAYERS,
   WASTE_STREAMS,
 } from '../../data/ecosystemData';
+import { EXTRA_NATURE_NFTS } from '../../data/extraNatureNfts';
 import type { TranslationDictionary } from '../types';
 
 export const tr: TranslationDictionary = {
@@ -66,26 +68,23 @@ export const tr: TranslationDictionary = {
     streams: WASTE_STREAMS,
   },
   oceanProtection: {
-    kicker: '03. ZWG Doğa Koruma Fonu',
-    headline: 'Her ZWG işlemi ormanlara, temiz su havzalarına ve yaban hayatına kaynak üretir.',
+    kicker: '03. ZWG Doğa NFT Koleksiyonu',
+    headline: 'Gerçek doğa korumasına bağlı koleksiyonluk ZWG NFT eserleri.',
     description:
-      'ZWG Doğa Hazinesi, toplam arzın %25’ini yalnızca bağımsız olarak doğrulanmış ağaçlandırma, su havzası koruma ve doğal yaşam alanı iyileştirme projelerine tahsis eder. Her adım zincir üstü şeffaflıkla denetlenir.',
-    selectorLabel: 'ZWG Doğa Koruma Havzası Seçin',
+      'Her ZWG Doğa NFT’si; orman koridorları, temiz su havzaları ve yaban hayatı sığınakları için zincir üstünde doğrulanmış koruma fonu üretir. Bir NFT seçin ve çevresel etkisini inceleyin.',
+    slogan: 'Doğa emanetimizdir — her eser bir ormana nefes, her dokunuş geleceğe mirastır.',
+    selectorLabel: 'Doğa NFT Koleksiyonu (32 Özel Seri)',
     imageAlt: 'Sisli çam ormanları ve berrak dağ akarsuyunun aktığı koruma altındaki doğal vadi',
-    imageFallback: 'ZWG Doğa Koruma Ağı',
-    schematic: {
-      inflow: 'Su Havzası & Toprak',
-      barrier: 'ZWG Koruma Kalkanı',
-      protectedSea: 'Doğal Yaşam Alanı',
-    },
+    imageFallback: 'ZWG Doğa NFT Galerisi',
     metrics: {
-      intercepted: 'Korunan Alan',
-      barriers: 'Sensör İstasyonu',
-      barriersUnit: (count) => `${count} nokta`,
-      grantPool: 'ZWG Hibe Fonu',
+      price: 'Mint Değeri',
+      impact: 'Gerçek Doğa Etkisi',
+      edition: 'Sınırlı Arz',
     },
-    habitatLabel: 'Habitat Odağı:',
-    corridors: OCEAN_CORRIDORS,
+    provenanceLabel: 'Koruma Kaynağı:',
+    reserveCta: 'Whitelist İçin Ayırt',
+    reservedCta: 'Whitelist Listesine Eklendi',
+    nfts: [...NATURE_NFTS, ...EXTRA_NATURE_NFTS.tr],
   },
   circularEconomy: {
     kicker: '04. ZWG Tokenomisi & Sıfır Atık Ekonomisi',
@@ -103,8 +102,28 @@ export const tr: TranslationDictionary = {
       'ZWG, gerçek dünyada geri kazanılan ham madde ve korunan doğal yaşam alanlarıyla desteklenen, döngüsel sıfır atık ekonomisinin dijital değer birimidir.',
     phases: CIRCULAR_PHASES,
   },
+  protocol: {
+    kicker: '05. ZWG Protokol Mimarisi & Proof-of-Recycle',
+    headline: 'Sensörden zincire kesintisiz doğrulama yapan açık kaynak sıfır atık protokolü.',
+    description:
+      'ZWG Protokolü; fiziksel geri dönüşüm istasyonlarını, akıllı sözleşme ödül motorunu ve çoklu imzalı doğa koruma hazinesini tek bir denetlenebilir mimaride birleştirir.',
+    architectureTitle: 'Protokol Katmanları (İncelemek İçin Seçin)',
+    metrics: {
+      mechanism: 'Doğrulama Mekanizması',
+      latency: 'Onay Süresi',
+      security: 'Güvenlik Katmanı',
+    },
+    guaranteeLabel: 'Protokol Garantisi:',
+    flowLabel: 'Canlı Zincir Üstü Veri Akışı',
+    specs: [
+      { label: 'Toplam Arz', value: '10.000.000.000' },
+      { label: 'Maksimum Arz', value: '10.000.000.000' },
+      { label: 'Dolaşımdaki Arz', value: '0' },
+    ],
+    layers: PROTOCOL_LAYERS,
+  },
   join: {
-    kicker: '05. ZWG Erken Erişim & Ekosistem Katılımı',
+    kicker: '06. ZWG Erken Erişim & Ekosistem Katılımı',
     headline: 'ZWG erken erişim listesine ve küresel doğa koruma ağına katılın.',
     description:
       'İster geri dönüşüm yaparak ZWG kazanmak isteyen bireysel bir katılımcı, ister belediye istasyonu, doğa koruma projesi veya likidite ortağı olun — ZWG ekosisteminde yerinizi alın.',
@@ -160,7 +179,7 @@ export const tr: TranslationDictionary = {
     },
     footer: {
       copyright: '© 2026 Zero Waste Global (ZWG) Kripto Ekosistemi',
-      links: ['Dönüştür-Kazan', 'Doğa Fonu', 'ZWG Tokenomi'],
+      links: ['Dönüştür-Kazan', 'NFT', 'ZWG Tokenomi'],
     },
   },
 };
