@@ -395,10 +395,13 @@ export const fr: TranslationDictionary = {
     },
     guaranteeLabel: 'Garantie Protocole :',
     flowLabel: 'Flux de Vérification On-Chain en Direct',
+    listingsLabel: 'Listings',
+    listingsSubtitle: 'Accédez directement au jeton Zero Waste Global (ZWG) via une liquidité décentralisée.',
+    swapCta: 'Échanger sur PancakeSwap',
     specs: [
       { label: 'Offre Totale', value: '10 000 000 000' },
       { label: 'Offre Maximale', value: '10 000 000 000' },
-      { label: 'Offre en Circulation', value: '0' },
+      { label: 'Offre en Circulation', value: '200 000 000' },
     ],
     layers: [
       {

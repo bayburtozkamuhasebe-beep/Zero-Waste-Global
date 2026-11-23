@@ -123,6 +123,9 @@ export interface TranslationDictionary {
     };
     guaranteeLabel: string;
     flowLabel: string;
+    listingsLabel: string;
+    listingsSubtitle: string;
+    swapCta: string;
     specs: Array<{
       label: string;
       value: string;

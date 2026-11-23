@@ -395,10 +395,13 @@ export const en: TranslationDictionary = {
     },
     guaranteeLabel: 'Protocol Guarantee:',
     flowLabel: 'Live On-Chain Verification Flow',
+    listingsLabel: 'Listings',
+    listingsSubtitle: 'Access Zero Waste Global (ZWG) directly through verified decentralized exchange liquidity.',
+    swapCta: 'Trade on PancakeSwap',
     specs: [
       { label: 'Total Supply', value: '10,000,000,000' },
       { label: 'Maximum Supply', value: '10,000,000,000' },
-      { label: 'Circulating Supply', value: '0' },
+      { label: 'Circulating Supply', value: '200,000,000' },
     ],
     layers: [
       {

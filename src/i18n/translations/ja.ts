@@ -394,10 +394,13 @@ export const ja: TranslationDictionary = {
     },
     guaranteeLabel: 'プロトコル保証：',
     flowLabel: 'リアルタイム・オンチェーン検証フロー',
+    listingsLabel: '上場先',
+    listingsSubtitle: '分散型流動性を通じてZero Waste Global（ZWG）へ直接アクセスできます。',
+    swapCta: 'PancakeSwapで取引',
     specs: [
       { label: '総供給量', value: '10,000,000,000' },
       { label: '最大供給量', value: '10,000,000,000' },
-      { label: '循環供給量', value: '0' },
+      { label: '循環供給量', value: '200,000,000' },
     ],
     layers: [
       {

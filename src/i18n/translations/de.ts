@@ -395,10 +395,13 @@ export const de: TranslationDictionary = {
     },
     guaranteeLabel: 'Protokoll-Garantie:',
     flowLabel: 'Live On-Chain-Verifizierungsfluss',
+    listingsLabel: 'Listings',
+    listingsSubtitle: 'Greifen Sie direkt über dezentrale Liquidität auf Zero Waste Global (ZWG) zu.',
+    swapCta: 'Auf PancakeSwap handeln',
     specs: [
       { label: 'Gesamtangebot', value: '10.000.000.000' },
       { label: 'Maximales Angebot', value: '10.000.000.000' },
-      { label: 'Umlaufmenge', value: '0' },
+      { label: 'Umlaufmenge', value: '200.000.000' },
     ],
     layers: [
       {
